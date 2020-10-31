@@ -119,14 +119,14 @@ end ordered_ring_equiv
 
 /-- A field which is both linearly ordered and conditionally complete with respect to the order,
     this provides a model of the reals. -/
-class conditionally_complete_linear_ordered_field (F : Type*) extends discrete_linear_ordered_field F,
+class conditionally_complete_linear_ordered_field (F : Type*) extends linear_ordered_field F,
   conditionally_complete_linear_order F
 
 -- TODO conditionally_complete_lattice or conditioanlly_complete_linear order?
 
 /-- The reals are a conditionally complete linearly ordered field. -/
 instance : conditionally_complete_linear_ordered_field ℝ := {
-  ..real.discrete_linear_ordered_field,
+  ..real.linear_ordered_field,
   ..real.conditionally_complete_linear_order }
 
 lemma exists_rat_sqr_btwn_rat_aux (x y : ℝ) (h : x < y) (hx : 0 ≤ x) :
